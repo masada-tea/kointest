@@ -18,6 +18,7 @@ export default function App() {
 }
 */
 // app/game/[slug]/page.tsx  または components/Emulator.tsx など
+// app/game/[slug]/page.tsx  または components/Emulator.tsx など
 "use client"
 
 import { useEffect, useRef } from 'react'
@@ -41,9 +42,26 @@ export default function GamePage() {
           rom: 'https://nostalgist.js.org/roms/nes/flappybird.nes',
           // またはローカルファイル選択を使うことも可能
           // element: containerRef.current,  ← 省略するとbody直下にcanvasが出る
-        });
+        })
+
+        // コンテナを指定して中に描画させる（推奨）
+        await currentNostalgist.setElement(containerRef.current)
+
+        nostalgistRef.current = currentNostalgist
+      } catch (err) {
+        console.error('エミュレータ起動失敗', err)
+      }
+    }
 
     launch()
+
+    return () => {
+      // コンポーネントアンマウント時に終了
+      if (nostalgistRef.current) {
+        nostalgistRef.current.exit().catch(console.error)
+      }
+    }
+  }, [])
 
   return (
     <div style={{ width: '100%', maxWidth: '640px', margin: '0 auto' }}>
@@ -62,5 +80,3 @@ export default function GamePage() {
     </div>
   )
 }
-}
-
