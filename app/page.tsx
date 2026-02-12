@@ -21,7 +21,10 @@ import { Nostalgist } from 'nostalgist'
 export default function Page() {
   return (
     <main>
-      await Nostalgist.snes('smt2')
+      await Nostalgist.launch({
+  core: 'snes',
+  rom: 'smt2.sfc',
+})
     </main>
   );
 }
