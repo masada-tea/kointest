@@ -44,8 +44,6 @@ export default function GamePage() {
         })
 
         // コンテナを指定して中に描画させる（推奨）
-        await currentNostalgist.setElement(containerRef.current)
-
         nostalgistRef.current = currentNostalgist
       } catch (err) {
         console.error('エミュレータ起動失敗', err)
