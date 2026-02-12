@@ -1,6 +1,5 @@
 //import logo from './logo.svg';
 'use client'
-import './App.css';
 import { GamePlayer } from 'koin.js';
 import 'koin.js/styles.css'; // Included styles
 
