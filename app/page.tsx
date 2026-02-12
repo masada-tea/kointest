@@ -15,6 +15,15 @@
 //    </div>
 //  );
 //}
+import React from "react";
 import { Nostalgist } from 'nostalgist'
 
-await Nostalgist.snes('smt2')
+export default function Page() {
+  return (
+    <main>
+      await Nostalgist.snes('smt2')
+    </main>
+  );
+}
+
+
