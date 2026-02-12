@@ -45,8 +45,6 @@ export default function GamePage() {
 
     launch()
 
-  }, 
-
   return (
     <div style={{ width: '100%', maxWidth: '640px', margin: '0 auto' }}>
       <h1>Retro Game in Next.js</h1>
