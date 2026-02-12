@@ -1,4 +1,6 @@
+//import logo from './logo.svg';
 'use client'
+import './App.css';
 import { GamePlayer } from 'koin.js';
 import 'koin.js/styles.css'; // Included styles
 
@@ -6,10 +8,10 @@ export default function App() {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <GamePlayer
-        romId="game-123"
+        romId="game-1"
         romUrl="/game.sfc"
         system="SNES"
-        title="games"
+        title="Super Mario Bros."
       />
     </div>
   );
