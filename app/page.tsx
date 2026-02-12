@@ -46,11 +46,6 @@ export default function GamePage() {
 
     launch()
 
-    return () => {
-      // コンポーネントアンマウント時に終了
-      if (nostalgistRef.current) {
-        nostalgistRef.current.exit().catch(console.error)
-      }
     }
   }, [])
 
