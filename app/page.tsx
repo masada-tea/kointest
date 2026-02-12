@@ -42,7 +42,7 @@ export default function GamePage() {
           // またはローカルファイル選択を使うことも可能
           // element: containerRef.current,  ← 省略するとbody直下にcanvasが出る
         })
-    }
+    },
 
     launch()
 
