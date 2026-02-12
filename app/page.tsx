@@ -7,8 +7,8 @@ export default function App() {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <GamePlayer
-        romId="game-2"
-        romUrl="/game.sfc"
+        romId="game2"
+        romUrl="/smt2.sfc"
         system="SNES"
         title="game."
       />
