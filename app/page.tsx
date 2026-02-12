@@ -42,12 +42,6 @@ export default function GamePage() {
           // またはローカルファイル選択を使うことも可能
           // element: containerRef.current,  ← 省略するとbody直下にcanvasが出る
         })
-
-        // コンテナを指定して中に描画させる（推奨）
-        nostalgistRef.current = currentNostalgist
-      } catch (err) {
-        console.error('エミュレータ起動失敗', err)
-      }
     }
 
     launch()
