@@ -25,11 +25,11 @@ import { useEffect, useRef } from 'react'
 import { Nostalgist } from 'nostalgist'
 
 export default function GamePage() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
   const nostalgistRef = useRef<Nostalgist | null>(null)
 
   useEffect(() => {
-    if (!containerRef.current) return
+    if (!canvasRef.current) return
 
     let currentNostalgist: Nostalgist | null = null
 
@@ -37,8 +37,8 @@ export default function GamePage() {
       try {
         currentNostalgist = await Nostalgist.nes({
           rom: 'https://nostalgist.js.org/roms/nes/flappybird.nes',
-          // ← Key fix: pass the container element here
-          element: containerRef.current,
+          // Key: pass the canvas element directly
+          element: canvasRef.current,
         })
 
         nostalgistRef.current = currentNostalgist
@@ -59,12 +59,16 @@ export default function GamePage() {
   return (
     <div style={{ width: '100%', maxWidth: '640px', margin: '0 auto' }}>
       <h1>Retro Game in Next.js</h1>
-      <div
-        ref={containerRef}
+      {/* Use <canvas> instead of <div> */}
+      <canvas
+        ref={canvasRef}
         style={{
           width: '100%',
-          aspectRatio: '256 / 240', // NES例; システムに合わせて調整
+          height: 'auto',           // or fixed height if preferred
+          aspectRatio: '256 / 240', // NES native aspect; adjust per system
           background: '#000',
+          imageRendering: 'pixelated', // sharp pixels (optional but recommended)
+          display: 'block',
           margin: '1rem 0',
         }}
       />
